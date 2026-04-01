@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>My to do list</title>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="gradient-text text-center sm:text-[40px] text-[35px] font-black sm:leading-[51px] leading-[45px] mt-[50px]">MY TO DO LIST</h1>
+        </div>
+    </header>
+    
+    <main class="site-main">
+        <section>
+            <div class="container">
+                <div class="todo mb-[50px]">
+                    <form class="todo-form max-w-[600px] mx-auto my-[25px]">
+                        <label class="relative flex">
+                            <input class="todo-input w-full sm:py-[16px] py-[12px] sm:pl-[20px] pl-[10px] sm:pr-[170px] pr-[130px] rounded-[10px] bg-white shadow-lg outline-none" type="text" name="user_todo" placeholder="write your todo list" autocomplete="off" required>
+                           
+                            <button type="submit" class="absolute sm:w-[100px] w-[80px] text-white right-0 sm:py-[16px] py-[12px] rounded-r-[10px] bg-[linear-gradient(64.54deg,rgba(7,253,253,1),rgba(77,105,254,1)_47%,rgba(204,0,255,1)_100%)] cursor-pointer">Save</button>
+                        </label>
+                    </form>
+
+
+                    <div class="max-w-[450px] sm:max-w-[600px] mx-auto flex items-center justify-between gap-3 mb-5">
+                        <input class="search-input w-[70%] p-2 border border-[#D9D9D9] shadow-sm outline-none" type="search" placeholder="Search task...">
+                        <select class="select-task  w-[28%] p-2 border border-[#D9D9D9] shadow-sm outline-none cursor-pointer">
+                            <option value="all">All</option>
+                            <option value="active">Active</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    
+                    
+                    <div class="max-w-[450px] sm:max-w-[600px] mx-auto sm:flex sm:flex-nowrap flex flex-wrap items-center justify-between gap-3">
+                        <div class="all-completed sm:max-w-[31%] w-full border border-[#D9D9D9] sm:px-[20px] px-[10px] py-2 shadow-sm gradient-text text-center sm:text-[16px] text-[13px] font-semibold cursor-pointer hover:scale-105 duration-300">
+                            <p>Set All Completed</span></p> 
+                        </div>
+                        <div class="completed-delete sm:max-w-[35%] w-[56%] border border-[#D9D9D9] sm:px-[20px] px-[10px] py-2 shadow-sm gradient-text text-center sm:text-[16px] text-[13px] font-semibold cursor-pointer hover:scale-105 duration-300">
+                            <p>Clear All Completed</p> 
+                        </div>
+                        <div class="clear-all sm:max-w-[31%] w-[39%] border border-[#D9D9D9] sm:px-[20px] px-[10px] py-2 shadow-sm gradient-text text-center sm:text-[16px] text-[13px] font-semibold cursor-pointer hover:scale-105 duration-300">
+                            <p>Clear All</p> 
+                        </div>
+                    </div>
+                    
+
+                    <ul class="todo-list max-w-[600px] mx-auto flex flex-col gap-3 mt-[25px] bg-white"></ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+    <div id="wrapper" class="wrapper-modal fixed inset-0 m-auto scale-0 backdrop-blur duration-400">
+        <div class="inner-modal sm:max-w-[600px] max-w-[300px] sm:h-[250px] h-[310px] absolute inset-0 m-auto rounded-lg bg-white shadow-lg">
+            <h2 class="uppercase sm:mb-[25px] mb-[15px] sm:mt-[20px] mt-[10px] font-semibold text-[24px] text-center gradient-text">Update Note</h2>
+            
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    
+    <script src="./js/main.js"></script>
+</body>
+</html>
+
+

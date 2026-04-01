@@ -1,0 +1,40 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/overpass-v19-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/overpass-v19-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/overpass-v19-latin-900.woff2') format('woff2');
+}
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+body{
+  background-color: #FCFCFC;
+}
+.gradient-text{
+  background: linear-gradient(-86.11deg, 
+  rgba(204, 0, 255, 1),
+  rgba(86.82, 86.06, 255, 1) 35%,
+  rgba(7, 253, 253, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
