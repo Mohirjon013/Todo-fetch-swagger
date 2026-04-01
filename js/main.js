@@ -17,7 +17,7 @@ let elModalContent = document.querySelector(".modal-content")
 
 
 async function getTasks(){
-    let tasks = await fetch("http://147.182.216.101:3005/todo?status=all")
+    let tasks = await fetch("/api/todo?status=all")
     tasks = await tasks.json()
     renderTask(tasks)
 }
@@ -67,7 +67,7 @@ async function addTasks(e){
     const data = {
         text: elInput.value.trim()
     }
-    let newTask = await fetch("http://147.182.216.101:3005/todo", {
+    let newTask = await fetch("/api/todo", {
         method: "POST",
         headers: {
             "Content-Type":"application/json"
@@ -85,7 +85,7 @@ elForm.onsubmit = addTasks
 
 // delete task start
 async function handleDeleteBtn(id){
-    let deleteTask = await fetch("http://147.182.216.101:3005/todo/" + id, {
+    let deleteTask = await fetch("/api/todo/" + id, {
         method:"DELETE"
     })
     
@@ -98,7 +98,7 @@ async function handleDeleteBtn(id){
 async function handleUpdateBtn(id){
     elWrapperModal.classList.remove("scale-0")
     
-    let taskData = await fetch("http://147.182.216.101:3005/todo?status=all")
+    let taskData = await fetch("/api/todo?status=all")
     taskData = await taskData.json()
     
     let singleData = taskData.find(item => item.id === id)
@@ -125,7 +125,7 @@ async function handleUpdateBtn(id){
             "completed": singleData.completed
         }
         
-        await fetch(`http://147.182.216.101:3005/todo/${id}`, {
+        await fetch(`/api/todo/${id}`, {
             method:"PATCH", 
             headers:{
                 "Content-Type":"application/json"
@@ -154,7 +154,7 @@ function handleCancelModal(){
 
 // complete task start
 async function handleCompleteBtn(id){
-    await fetch(`http://147.182.216.101:3005/todo/${id}/toggle`, {
+    await fetch(`/api/todo/${id}/toggle`, {
         method:"PATCH"
     })
     getTasks()
@@ -165,7 +165,7 @@ async function handleCompleteBtn(id){
 // delete allTask start
 elClearAll.addEventListener("click", function(e){
     async function deleteAllTask() {
-        await fetch("http://147.182.216.101:3005/todo/deleteAllTask", {
+        await fetch("/api/todo/deleteAllTask", {
             method:"DELETE"
         })
         getTasks()
@@ -179,7 +179,7 @@ elClearAll.addEventListener("click", function(e){
 // all completed start 
 elAllCompleted.addEventListener("click", function(){
     async function allCompletedTask() {
-        await fetch("http://147.182.216.101:3005/todo/completedAll", {
+        await fetch("/api/todo/completedAll", {
             method:"PATCH"
         })
         getTasks()
@@ -192,7 +192,7 @@ elAllCompleted.addEventListener("click", function(){
 // complete delete start 
 elCompleteDelete.addEventListener("click", (e) => {
     async function completeDelete() {
-        await fetch("http://147.182.216.101:3005/todo/deleteCompleted", {
+        await fetch("/api/todo/deleteCompleted", {
             method:"DELETE"
         })
         getTasks()
@@ -208,7 +208,7 @@ elCompleteDelete.addEventListener("click", (e) => {
 elSelectTask.addEventListener("change", function(e){
     const selectValue = e.target.value
     async function selectTask(){
-        let selectedTasks = await fetch(`http://147.182.216.101:3005/todo?status=${selectValue}`)
+        let selectedTasks = await fetch(`/api/todo?status=${selectValue}`)
         selectedTasks = await selectedTasks.json()
         renderTask(selectedTasks)
     }
@@ -223,7 +223,7 @@ elSearchInput.addEventListener("keyup", (e) => {
     
     if(searchValue){
         async function searchTask() {
-            let searchedAllTask = await fetch(`http://147.182.216.101:3005/todo?search=${searchValue}&status=all`)
+            let searchedAllTask = await fetch(`/api/todo?search=${searchValue}&status=all`)
             searchedAllTask = await searchedAllTask.json()
             
             if(searchedAllTask.length > 0){
